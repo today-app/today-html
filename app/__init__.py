@@ -23,6 +23,12 @@ def init_assets(app):
 
 
 def init_blueprint(app):
+    from app.pages import page_bp
+
     @app.route('/')
     def index():
         return render_template('index.html')
+
+
+    app.register_blueprint(page_bp, url_prefix='/pages')
+
